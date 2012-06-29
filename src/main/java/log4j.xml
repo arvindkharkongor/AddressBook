@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="FILEERIC" class="org.apache.log4j.FileAppender">
+		<param name="File" value="${log.home}/bbjavalink.log" />
+		<param name="Threshold" value="DEBUG" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="com.ericsson.ema.downstream" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="FILEERIC" />
+	</logger>
+	
+	<logger name="net.blackberry.etr.provisioning.axis.services.Provisioning" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="FILEERIC" />
+	</logger>
+	
+	<logger name="org.apache.axis.transport.http" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="FILEERIC" />
+	</logger>
+	
+	<logger name="Provisioning" additivity="false">
+		<level value="info"/>
+		<appender-ref ref="FILEERIC" />
+	</logger>
+	<root>		
+		<level value="info"/>
+		<appender-ref ref="FILEERIC" />
+	</root>
+</log4j:configuration>
